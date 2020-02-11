@@ -8,10 +8,14 @@ import EditIcon from "@material-ui/icons/Edit";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 // or add 'props' as argument...
-function Todo({task, id, completed, removeTodo}) {
+function Todo({task, id, completed, removeTodo, toggleTodo}) {
     return(
         <ListItem>
-            <Checkbox checked={completed} tabIndex={-1}/>
+            <Checkbox 
+                checked={completed} 
+                tabIndex={-1}
+                onClick={() => toggleTodo(id)}
+                />
             <ListItemText
                 style={{textDecoration: completed ? "line-through" : "none"}}>
                 {task}

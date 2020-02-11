@@ -19,6 +19,9 @@ function Todo({task, completed}) {
                 <IconButton>
                     <DeleteIcon />
                 </IconButton>
+                <IconButton>
+                    <EditIcon />
+                </IconButton>
             </ListItemSecondaryAction>
         </ListItem>
     )

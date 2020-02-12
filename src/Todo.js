@@ -1,5 +1,6 @@
 import React from 'react';
 import UseToggleState from './hooks/UseToggleState';
+import EditTodoForm from './EditTodoForm';
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -13,7 +14,9 @@ function Todo({task, id, completed, removeTodo, toggleTodo}) {
     const [isEditing, toggle] = UseToggleState(false);  
     return(
         <ListItem>
-            {isEditing ? <h1>EDITING TIME!</h1> :
+            {isEditing ? 
+            <EditTodoForm />
+            :
             <>
             <Checkbox 
                 checked={completed} 

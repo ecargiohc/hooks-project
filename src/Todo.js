@@ -1,5 +1,5 @@
 import React from 'react';
-import UseToggleState from './hooks/UseToggleState';
+import useToggleState from './hooks/useToggleState';
 import EditTodoForm from './EditTodoForm';
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -10,12 +10,16 @@ import EditIcon from "@material-ui/icons/Edit";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 // or add 'props' as argument...
-function Todo({task, id, completed, removeTodo, toggleTodo}) {
-    const [isEditing, toggle] = UseToggleState(false);  
+function Todo({task, id, completed, removeTodo, toggleTodo, editTodo}) {
+    const [isEditing, toggle] = useToggleState(false);  
     return(
         <ListItem>
             {isEditing ? 
-            <EditTodoForm />
+            <EditTodoForm 
+            editTodo={editTodo}
+            task={task}
+            toggleEditForm={toggle}
+            /> 
             :
             <>
             <Checkbox 

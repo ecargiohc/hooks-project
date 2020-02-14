@@ -9,16 +9,17 @@ import Grid from "@material-ui/core/Grid";
 import uuid from 'uuid/v4';
 
 function TodoApp() {
-    const initialTodos = [
-        {id: 1, task: "take out trash", completed: true},
-        {id: 2, task: "organize closet", completed: false},
-        {id: 3, task: "practice violin", completed: false}
-    ];
+    const initialTodos = JSON.parse(window.localStorage.getItem("todos") || "[]");
+    // const initialTodos = [
+    //     {id: 1, task: "take out trash", completed: true},
+    //     {id: 2, task: "organize closet", completed: false},
+    //     {id: 3, task: "practice violin", completed: false}
+    // ];
     const [todos, setTodos] = useState(initialTodos);
 
     useEffect(() => {
         window.localStorage.setItem("todos", JSON.stringify(todos))
-    }, [todos])
+    }, [todos]);
 
     const addTodo = newTodoText => {
         setTodos([...todos, {id: uuid(), task: newTodoText, completed: false}])

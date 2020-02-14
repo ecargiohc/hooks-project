@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
 import Typography from "@material-ui/core/Typography";
@@ -15,6 +15,11 @@ function TodoApp() {
         {id: 3, task: "practice violin", completed: false}
     ];
     const [todos, setTodos] = useState(initialTodos);
+
+    useEffect(() => {
+        alert("IN useEffect!")
+    })
+
     const addTodo = newTodoText => {
         setTodos([...todos, {id: uuid(), task: newTodoText, completed: false}])
     };

@@ -16,6 +16,7 @@ function Todo({task, id, completed, removeTodo, toggleTodo, editTodo}) {
         <ListItem style={{height: "64px"}}>
             {isEditing ? 
             <EditTodoForm 
+            id={id}
             editTodo={editTodo}
             task={task}
             toggleEditForm={toggle}
